@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Üyelik Formu</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #74ABE2, #5563DE);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    form label {
+      display: block;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"],
+    form input[type="date"],
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      transition: 0.3s;
+    }
+
+    form input:focus, form select:focus, form textarea:focus {
+      border-color: #5563DE;
+      outline: none;
+      box-shadow: 0 0 5px rgba(85, 99, 222, 0.3);
+    }
+
+    form input[type="radio"],
+    form input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      width: 48%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    input[type="submit"] {
+      background: #5563DE;
+    }
+
+    input[type="reset"] {
+      background: #888;
+    }
+
+    input[type="submit"]:hover {
+      background: #3547C4;
+    }
+
+    input[type="reset"]:hover {
+      background: #666;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Üyelik Formu</h1>
+    <form>
+      <label>Ad:</label>
+      <input type="text" name="ad" required>
+
+      <label>Soyad:</label>
+      <input type="text" name="soyad" required>
+
+      <label>E-posta:</label>
+      <input type="email" name="email" required>
+
+      <label>Şifre:</label>
+      <input type="password" name="sifre" required>
+
+      <label>Doğum Tarihi:</label>
+      <input type="date" name="dogum">
+
+      <label>Cinsiyet:</label>
+      <input type="radio" name="cinsiyet" value="kadın"> Kadın
+      <input type="radio" name="cinsiyet" value="erkek"> Erkek
+
+      <label>Hobileriniz:</label>
+      <input type="checkbox" name="hobi" value="kitap"> Kitap Okumak
+      <input type="checkbox" name="hobi" value="spor"> Spor
+      <input type="checkbox" name="hobi" value="muzik"> Müzik Dinlemek
+
+      <label>Şehir:</label>
+      <select name="sehir">
+        <option>Seçiniz</option>
+        <option>Ankara</option>
+        <option>İstanbul</option>
+        <option>İzmir</option>
+        <option>Kocaeli</option>
+        <option>Esko</option> 
+      </select>
+
+      <label>Profil Fotoğrafı:</label>
+      <input type="file" name="foto">
+
+      <label>Kendinizi Tanıtın:</label>
+      <textarea name="aciklama" rows="4" placeholder="Kendinizden bahsedin..."></textarea>
+
+      <div class="buttons">
+        <input type="submit" value="Gönder">
+        <input type="reset" value="Temizle">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

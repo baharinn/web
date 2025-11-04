@@ -1,0 +1,20 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+form {
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+label {
+  font-weight: bold;
+}
