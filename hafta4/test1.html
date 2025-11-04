@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Programcılığı Testi</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, hwb(244 2% 58%), #0985c8);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    form label {
+      display: block;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .question {
+      margin-bottom: 25px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #ff758c;
+      outline: none;
+      box-shadow: 0 0 5px rgba(255, 117, 140, 0.3);
+    }
+
+    .options {
+      margin-top: 8px;
+    }
+
+    .options label {
+      font-weight: normal;
+      display: block;
+      margin-left: 10px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #ff758c;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background: #86e229;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Web Programcılığı Testi</h1>
+
+    <form>
+      
+      <div class="question">
+        <label>1. HTML’in açılımı nedir?</label>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> Hyper Text Markup Language</label>
+          <label><input type="radio" name="q1" value="b"> Hyperlinks and Text Mark Language</label>
+          <label><input type="radio" name="q1" value="c"> Home Tool Markup Language</label>
+        </div>
+      </div>
+
+      
+      <div class="question">
+        <label>2. Hangi HTML etiketi bir paragrafı tanımlar?</label>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a">&lt;para&gt;</label>
+          <label><input type="radio" name="q2" value="b">&lt;p&gt;</label>
+          <label><input type="radio" name="q2" value="c">&lt;text&gt;</label>
+        </div>
+      </div>
+
+      
+      <div class="question">
+        <label>3. CSS ne işe yarar?</label>
+        <div class="options">
+          <label><input type="checkbox" name="q3" value="a"> Sayfa düzeni oluşturmak</label>
+          <label><input type="checkbox" name="q3" value="b"> Görsel stilleri tanımlamak</label>
+          <label><input type="checkbox" name="q3" value="c"> Veritabanı bağlantısı kurmak</label>
+        </div>
+      </div>
+
+      
+      <div class="question">
+        <label>4. En sevdiğiniz web programlama dili hangisi?</label>
+        <select name="q4">
+          <option>Seçiniz</option>
+          <option>HTML</option>
+          <option>CSS</option>
+          <option>JavaScript</option>
+          <option>Python</option>
+        </select>
+      </div>
+
+      
+      <div class="question">
+        <label>5. JavaScript hangi tür bir dildir?</label>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> Sunucu taraflı</label>
+          <label><input type="radio" name="q5" value="b"> İstemci taraflı</label>
+          <label><input type="radio" name="q5" value="c"> Veri tabanı dili</label>
+        </div>
+      </div>
+
+     
+      <div class="question">
+        <label>6. Web geliştirme deneyiminizi 1-10 arasında değerlendiriniz:</label>
+        <input type="number" name="q6" min="1" max="10" placeholder="1 - 10 arasında bir değer">
+      </div>
+
+      
+      <div class="question">
+        <label>7. E-posta adresiniz (isteğe bağlı):</label>
+        <input type="email" name="q7" placeholder="ornek@mail.com">
+      </div>
+
+      
+      <div class="question">
+        <label>8. Web geliştirme hakkında düşünceleriniz:</label>
+        <textarea name="q8" rows="4" placeholder="Kısa bir yorum yazın..."></textarea>
+      </div>
+
+      
+      <input type="submit" value="Testi Gönder">
+    </form>
+  </div>
+</body>
+</html>
