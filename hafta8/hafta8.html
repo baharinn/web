@@ -12,10 +12,22 @@
       font-family: 'Poppins', sans-serif;
     }
 
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header img {
+      width: 100px;
+      height: auto;
+      margin-top: 20px;
+    }
+
     h2 {
       color: #a40000;
       font-weight: 700;
-      margin-bottom: 40px;
+      margin-top: 15px;
+      margin-bottom: 30px;
     }
 
     .player-card {
@@ -26,7 +38,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 320px; /* Tüm kartlar aynı yükseklikte */
+      height: 340px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -37,10 +49,12 @@
 
     .player-card img {
       border-radius: 10px;
-      height: 150px;
       width: 100%;
-      object-fit: cover;
+      height: 150px;
+      object-fit: contain; /* Resmin tamamı görünür */
       margin-bottom: 10px;
+      background: none; /* gri zemin kaldırıldı */
+      padding: 0; /* boşluk kaldırıldı */
     }
 
     .player-card h5 {
@@ -64,9 +78,12 @@
 </head>
 
 <body class="p-4">
-  <div class="container text-center">
-    <h2>Galatasaray İlk 11</h2>
 
+  <header>
+    <h2>Galatasaray İlk 11</h2>
+  </header>
+
+  <div class="container text-center">
     <div class="row g-4">
       <!-- Kaleci -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-2">
@@ -178,7 +195,7 @@
           <img src="https://hlkiurt3.rocketcdn.com/profiles/e368a518e7514312bbce5b4ecff73ea0.jpeg" alt="Barış Alper">
           <h5>Barış Alper Yılmaz</h5>
           <p class="number">#53</p>
-          <p>Forvet </p>
+          <p>Forvet</p>
         </div>
       </div>
 
