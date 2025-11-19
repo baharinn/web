@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rastgele Arka Plan & Resim Göster/Gizle</title>
+  <style>
+    :root{--accent:#2b8a78}
+    *{box-sizing:border-box}
+    body{
+      font-family:Inter, Arial;
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:24px;
+      transition:background 500ms ease;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:1000px;
+      background:#ffffffaa;
+      backdrop-filter: blur(6px);
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.12);
+      padding:20px;
+      position:relative;
+    }
+
+    /* Üst Sol Daire Görsel */
+    #featuredImage{
+      position:absolute;
+      top:15px;
+      left:15px;
+      width:110px;
+      height:110px;
+      border-radius:50%;
+      object-fit:cover;
+      box-shadow:0 4px 14px rgba(0,0,0,0.25);
+      z-index:10;
+    }
+
+    .toggles{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:16px;
+      margin-top:150px; /* Daireye çarpmasın diye artırıldı */
+    }
+
+    .toggle-card{
+      background:#fff;
+      border-radius:10px;
+      padding:12px;
+      box-shadow:0 6px 16px rgba(0,0,0,0.08);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .toggle-card img{
+      max-width:100%;
+      height:160px;
+      object-fit:cover;
+      border-radius:8px;
+    }
+
+    /* İki buton yan yana */
+    .button-row{
+      display:flex;
+      gap:10px;
+      width:100%;
+      margin-top:10px;
+    }
+
+    .button-row button{
+      flex:1;
+      padding:8px 12px;
+      background:var(--accent);
+      border:none;
+      color:white;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:15px;
+      font-weight:600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <!-- ÜST SOL KÖŞEDE DAİRE GÖRSEL -->
+    <img id="featuredImage" alt="Rastgele seçilen öne çıkan resim">
+
+    <section class="toggles" aria-label="Göster/Gizle resimler">
+      
+      <!-- 1. Kart -->
+      <div class="toggle-card">
+        <img id="img1" src="https://picsum.photos/id/237/600/400" alt="Resim 1">
+        <div class="button-row">
+          <button data-target="img1" data-action="show">Göster</button>
+          <button data-target="img1" data-action="hide">Gizle</button>
+        </div>
+      </div>
+
+      <!-- 2. Kart -->
+      <div class="toggle-card">
+        <img id="img2" src="https://picsum.photos/id/1025/600/400" alt="Resim 2">
+        <div class="button-row">
+          <button data-target="img2" data-action="show">Göster</button>
+          <button data-target="img2" data-action="hide">Gizle</button>
+        </div>
+      </div>
+
+      <!-- 3. Kart -->
+      <div class="toggle-card">
+        <img id="img3" src="https://picsum.photos/id/1069/600/400" alt="Resim 3">
+        <div class="button-row">
+          <button data-target="img3" data-action="show">Göster</button>
+          <button data-target="img3" data-action="hide">Gizle</button>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <script>
+    (function(){
+      const images = [
+        'https://picsum.photos/id/1011/1200/700',
+        'https://picsum.photos/id/1025/1200/700',
+        'https://picsum.photos/id/1035/1200/700',
+        'https://picsum.photos/id/1043/1200/700',
+        'https://picsum.photos/id/1050/1200/700',
+        'https://picsum.photos/id/1069/1200/700',
+        'https://picsum.photos/id/1074/1200/700',
+        'https://picsum.photos/id/1084/1200/700',
+        'https://picsum.photos/id/1080/1200/700',
+        'https://picsum.photos/id/1003/1200/700'
+      ];
+
+      function randomHexColor(){
+        const hex = Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0');
+        return '#'+hex;
+      }
+
+      function setRandomBackground(){
+        const color = randomHexColor();
+        document.body.style.background = `linear-gradient(135deg, ${color}33, ${color}88)`;
+      }
+
+      function pickRandomFeatured(){
+        const idx = Math.floor(Math.random()*images.length);
+        document.getElementById('featuredImage').src = images[idx];
+      }
+
+      document.addEventListener('DOMContentLoaded', ()=>{
+
+        setRandomBackground();
+        pickRandomFeatured();
+
+        /* Göster / Gizle butonları */
+        document.querySelectorAll('.button-row button').forEach(btn=>{
+          btn.addEventListener('click', ()=>{
+            const id = btn.getAttribute('data-target');
+            const action = btn.getAttribute('data-action');
+            const img = document.getElementById(id);
+
+            if(action === "show") img.style.display = "";
+            if(action === "hide") img.style.display = "none";
+          });
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
