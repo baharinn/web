@@ -1,71 +1,55 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Bahar Arın — BTE311</title>
-  <link rel="stylesheet" href="assets/styles.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <script src="https://codepen.io/steveg3003/pen/zBVakw"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+     <title>Barin - Dev Pasta Kulesi</title>
+    <link
+      rel="icon"
+      href="https://png.pngtree.com/png-vector/20240604/ourlarge/pngtree-bee-logo-icon-png-image_12618028.png"
+    />
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1>Lab Görevleri</h1>
+
+    <div class="legend-container">
+        <h3>Lezzet Puanları</h3>
+        <ul>
+            <li>🍰 Tam Üstüne: <span class="plus">+50</span></li>
+            <li>🧁 Normal Kek: <span class="plus">+10</span></li>
+            <li>🗑️ Kesilen Kek: <span class="minus">0</span></li>
+        </ul>
     </div>
-  </header>
 
-<main class="container">
-  <nav aria-label="Haftalar">
-    <ul class="week-list">
-      <li>
-        <strong>Hafta 4</strong>
-        <ul>
-          <li><a href="hafta4/form1.html">Form 1 (Üyelik)</a></li>
-          <li><a href="hafta4/test1.html">Test 1 (Web Programcılığı)</a></li>
+    <div class="history-container">
+        <h3>Son Dilimler</h3>
+        <ul id="move-history">
         </ul>
-      </li>
+    </div>
 
-      <li>
-        <strong>Hafta 5</strong>
-        <ul>
-          <li><a href="hafta5/inlinecss/inlinecss.html">Inline Css</a></li>
-          <li><a href="hafta5/internalcss/internalcss.html">Internal Css</a></li>
-          <li><a href="hafta5/externalcss/externalcss.html">External Css</a></li>
-          <li><a href="hafta5/daireler/daireler.html">Daireler</a></li>
-        </ul>
-      </li>
-      <li>
-        <strong>Hafta 7</strong>
-        <ul>
-          <li><a href="hafta7/hafta7.html">Yüzler</a></li>
-        </ul>
-      </li>
-      <li>
-        <strong>Hafta 8</strong>
-        <ul>
-          <li><a href="hafta8/hafta8.html">Kartlar(Galatasaray-11)</a></li>
-        </ul>
-      </li>
-      <li>
-        <strong>Hafta 9</strong>
-        <ul>
-          <li><a href="hafta9/hafta9.html">Rastgele Resim</a></li>
-        </ul>
-      </li>
-       <li>
-        <strong>Hafta 10</strong>
-        <ul>
-          <li><a href="hafta10/hafta10.html">Dev Pasta Kulesi</a></li>
-          <li><a href="orijinal oyun/index.html">orijinal oyun</a></li>
-        </ul>
-      </li>
-      
-    </ul>
-  </nav>
-</main>
-
-
-
-
-  <script src="assets/script.js"></script>
+    <script src="script.js" async></script>
+    <div id="container">
+        <div id="game"></div>
+        <div id="score">0</div>
+        <div id="instructions">
+            Kek katını koymak için tıkla veya Boşluk tuşuna bas
+        </div>
+        <div class="game-over">
+            <h2>Pasta Devrildi!</h2>
+            <p>Çok lezzetli görünüyordu...</p>
+            <p>Yeniden pişirmek için tıkla</p>
+        </div>
+        <div class="game-ready">
+            <div id="start-button">Başlamak İçin Tıkla</div>
+            <div></div>
+        </div>
+    </div>
 </body>
+
 </html>
