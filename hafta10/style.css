@@ -12,6 +12,8 @@ body {
   color: #5D4037;
 }
 
+/* ------------------------------------------------ */
+
 #container {
   width: 100%;
   height: 100%;
@@ -33,124 +35,153 @@ body {
 
 #container #game {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
 }
 
-/* --- SOL VE SAĞ PANELLERİN TASARIMI --- */
-.legend-container, .history-container {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 3px solid #E91E63;
-    border-radius: 20px;
-    padding: 15px;
-    width: 200px;
-    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
-    text-align: left;
-    z-index: 100;
+/* ------------------------------------------------ */
+/* SOL & SAĞ PANELLER */
+
+.legend-container,
+.history-container {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 3px solid #E91E63;
+  border-radius: 20px;
+  padding: 15px;
+  width: 200px;
+  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+  z-index: 100;
 }
 
 .legend-container { left: 20px; }
 .history-container { right: 20px; }
 
-.legend-container h3, .history-container h3 {
-    text-align: center;
-    color: #E91E63;
-    margin-top: 0;
-    border-bottom: 2px dashed #E91E63;
-    padding-bottom: 10px;
+.legend-container h3,
+.history-container h3 {
+  text-align: center;
+  color: #E91E63;
+  margin-top: 0;
+  border-bottom: 2px dashed #E91E63;
+  padding-bottom: 10px;
 }
 
-.legend-container ul, .history-container ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.legend-container ul,
+.history-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.legend-container li, .history-container li {
-    font-size: 1.1rem;
-    padding: 8px;
-    margin: 5px 0;
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
+.legend-container li,
+.history-container li {
+  font-size: 1.1rem;
+  padding: 8px;
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
 }
 
 .plus { color: #4CAF50; }
 .minus { color: #F44336; }
 
-/* --- OYUN İÇİ YAZILAR --- */
-#container .game-over h2 {
-  font-size: 40px;
-  color: #E91E63;
+/* ------------------------------------------------ */
+/* OYUN YAZILARI (READY / OVER) */
+
+#container .game-ready,
+#container .game-over {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
 }
 
-/* --- GÜNCELLENEN KISIM: BAŞLANGIÇ EKRANI --- */
+/* SADECE BAŞLANGIÇTA */
+#container.ready .game-ready {
+  display: flex;
+}
+
+/* OYUN BAŞLAYINCA START GİDER */
+#container.playing .game-ready {
+  display: none;
+}
+
+/* OYUN BİTİNCE RESTART GELİR */
+#container.ended .game-over {
+  display: flex;
+}
+
+/* ------------------------------------------------ */
+/* START BUTTON */
+
 #container .game-ready #start-button {
-  /* Buton görünümünü kaldırdık */
+  pointer-events: auto;
+  background: none;
   border: none;
-  background-color: transparent;
-  padding: 0;
-  box-shadow: none;
-  
-  /* Yazı stili verdik */
   color: #E91E63;
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
   text-shadow: 2px 2px 0px #fff;
-  
-  /* Yanıp sönme animasyonu */
   animation: pulse 1.5s infinite;
 }
 
-/* Yanıp sönme efekti */
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.7; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
 #container .game-ready #start-button:hover {
-    /* Üzerine gelince animasyon dursun */
-    animation: none;
-    transform: scale(1.1);
+  animation: none;
+  transform: scale(1.1);
 }
 
-/* ------------------------------------------- */
+/* ------------------------------------------------ */
+/* GAME OVER */
+
+#container .game-over h2 {
+  font-size: 42px;
+  color: #E91E63;
+}
+
+#container .game-over p:last-child {
+  margin-top: 15px;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------ */
+/* INSTRUCTIONS */
 
 #instructions {
-    color: #5D4037;
-    font-weight: bold;
-    background: rgba(255,255,255,0.8);
-    padding: 10px;
-    border-radius: 10px;
-    display: inline-block;
+  position: absolute;
+  width: 100%;
+  top: 16vh;
+  text-align: center;
+  color: #5D4037;
+  font-weight: bold;
+  background: rgba(255,255,255,0.8);
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
-#container .game-over, #container .game-ready {
-    position: absolute; top:0; left:0; width:100%; height:100%;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    pointer-events: none; /* Tıklamaların arkadaki oyuna (veya document'a) geçmesini sağlar */
+#container.playing #instructions {
+  opacity: 1;
 }
 
-/* Başla yazısına tıklanabilsin diye pointer-events'i açıyoruz */
-#container .game-ready #start-button {
-    pointer-events: auto;
+#container #instructions.hide {
+  opacity: 0 !important;
 }
 
-#container .game-over * { opacity:0; transform:translatey(-50px); transition:all 0.5s;}
-#container.ended .game-over * { opacity:1; transform:translatey(0); }
-#container #instructions { position: absolute; width:100%; top:16vh; text-align:center; transition: opacity 0.5s; opacity:0;}
-#container.playing #instructions { opacity: 1; }
-#container #instructions.hide { opacity: 0 !important; }
+/* ------------------------------------------------ */
+/* ANIMATIONS */
 
-/* İlk başta game-ready görünür, oyun başlayınca (playing class'ı gelince) kaybolur */
-#container.playing .game-ready, 
-#container.resetting .game-ready {
-    display: none; 
+@keyframes pulse {
+  0%   { transform: scale(1);   opacity: 1; }
+  50%  { transform: scale(1.1); opacity: 0.7; }
+  100% { transform: scale(1);   opacity: 1; }
 }
